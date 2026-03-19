@@ -75,8 +75,7 @@ SCENE_4_FLOWERS_REPEAT      = "Molly: Atchoo!"
 # Scene 5 — picnic dialogue
 SCENE_5_SAM_SPOT          = "Sam: This might be the best picnic spot yet!"
 
-SCENE_5_HOUSE_QUESTION    = "Molly: It's perfect! Oh, I love living here with
-you! Do you remember when we first saw the house?"
+SCENE_5_HOUSE_QUESTION    = "Molly: It's perfect! Oh, I love living here with you! Do you remember when we first saw the house?"
 SCENE_5_HOUSE_CHOICES     = [" - That was an impulsive day!", " - I liked that it was yellow!"]
 SCENE_5_HOUSE_FOLLOWUP    = "Molly: We never weren't going to go for it!"
 
