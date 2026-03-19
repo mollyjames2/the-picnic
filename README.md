@@ -6,28 +6,16 @@ A short narrative adventure game built with **PyGame**, playable in the browser 
 
 ---
 
+The game will be live at:
+
+```
+https://mollyjames2.github.io/the-picnic/
+```
 ## Story
 
-You play as **Sam**, heading out on a picnic with your partner **Maggie** and friend **Molly**.
-Pack the basket, choose a destination, find the perfect spot, and enjoy the afternoon — while Sam works up to something special.
+You play as **Sam**, heading out on a picnic with your partner **Molly** and dog **Maggie**.
+Pack the basket, choose a destination, find the perfect spot, and enjoy the afternoon
 
-The choices you make throughout the story are quietly remembered and woven into the ending.
-
----
-
-## Scenes
-
-| # | Scene | Summary |
-|---|-------|---------|
-| 0 | Title screen | Press ENTER to begin |
-| 1 | Kitchen | Pack the picnic basket — collect items scattered around the room and bring them to the basket |
-| 2 | Kitchen | Molly arrives; choose a destination (beach, woods, or viewpoint); everyone walks to the car |
-| 3 | Car | Conversation on the drive; a question about living here (choice remembered for later) |
-| 4 | Arrival | Explore the location to find the perfect picnic spot — some spots have consequences |
-| 5 | Picnic | Settle in; a series of conversational choices about home, comfort, and adventure |
-| 6 | Proposal | Sam gives a speech drawn from your earlier choices, then gets down on one knee |
-
----
 
 ## Controls
 
@@ -82,17 +70,17 @@ engine/
   transitions.py     GIF playback transitions
   dialogue.py        text_box and draw_3d_box UI helpers
 scenes/
-  scene_0.py         Title screen
-  scene_1.py         Kitchen — pack the basket
-  scene_2.py         Molly arrives, destination choice, drive-away
-  scene_3.py         Car conversation, living-here choice
-  scene_4.py         Spot exploration with vignettes
-  scene_5.py         Picnic conversation choices
-  scene_6.py         Proposal ending
+  scene_0.py         
+  scene_1.py        
+  scene_2.py         
+  scene_3.py         
+  scene_4.py         
+  scene_5.py         
+  scene_6.py       
 assets/
   sprites/           Character and background sprites
-  GIFs/              Animated sequences (kitchen, solar flare, hay fever)
-  pictures/          Car interior, ring, destination backgrounds
+  GIFs/              Animated sequences 
+  pictures/          Destination backgrounds
   fonts/             Monospace TTF font
 .github/workflows/   GitHub Actions deploy to GitHub Pages
 ```
@@ -120,8 +108,3 @@ In **Settings → Pages**, set source to **Deploy from a branch** and select the
 
 The `gh-pages` branch is created automatically on the first deploy run.
 
-Your game will be live at:
-
-```
-https://<your-github-username>.github.io/<repo-name>/
-```
