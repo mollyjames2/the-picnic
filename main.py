@@ -46,8 +46,12 @@ async def main():
     sprites.load("picnic_bg",  "assets/sprites/picnic.png",       (WIDTH, HEIGHT))
     sprites.load_with_aspect_ratio("ring", "assets/pictures/ring.png", 240)
 
-    _kitchen_gif_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets/GIFs/kitchen.gif")
-    _kitchen_frames, _kitchen_durations = load_gif_frames(_kitchen_gif_path, size=(WIDTH, HEIGHT - 2 * _KITCHEN_BAND))
+    sprites.load("kitchen_bg", "assets/sprites/kitchen.png", (WIDTH, HEIGHT - 2 * _KITCHEN_BAND))
+    _kitchen_frames    = [sprites.get("kitchen_bg")]
+    _kitchen_durations = [100]
+
+    _s4_solar_frames,    _s4_solar_durs    = load_gif_frames(os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets/GIFs/hot-solar-flare.gif"),  size=(WIDTH, HEIGHT))
+    _s4_hayfever_frames, _s4_hayfever_durs = load_gif_frames(os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets/GIFs/hay-fever-sick.gif"),   size=(WIDTH, HEIGHT))
 
     game_state = {
         "scene": 0,
@@ -110,6 +114,9 @@ async def main():
         "s3_arrival_done": False,
         "s3_destination_shown": False,
         "livingHereChoice": None,   # "sea" | "town" | "house" — stored for proposal scene
+        # Scene 4 GIF cache — preloaded so pygbag doesn't need to do file I/O mid-game
+        "s4_solar_gif":   (_s4_solar_frames,    _s4_solar_durs),
+        "s4_hayfever_gif": (_s4_hayfever_frames, _s4_hayfever_durs),
         # Scene 5 state
         "s5_intro_done":       False,
         "s5_house_done":       False,
