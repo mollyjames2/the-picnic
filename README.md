@@ -6,11 +6,7 @@ A short narrative adventure game built with **PyGame**, playable in the browser 
 
 ---
 
-The game will be live at:
-
-```
-https://mollyjames2.github.io/the-picnic/
-```
+The game is live at **[mollyjames2.github.io/the-picnic](https://mollyjames2.github.io/the-picnic/)**
 ## Story
 
 You play as **Sam**, heading out on a picnic with your partner **Molly** and dog **Maggie**.
