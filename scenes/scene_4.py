@@ -8,10 +8,10 @@ import pygame
 from engine.assets import load_gif_frames
 from engine.dialogue import draw_3d_box, text_box
 from engine.movement import follow_leader, move_player
+import engine.settings as _S
 from engine.settings import (
     BASE_PATH,
     BLACK,
-    FONT_SMALL,
     HEIGHT,
     MOVEMENT_SPEED,
     SPRITE_HEIGHT,
@@ -99,7 +99,7 @@ def _draw_spot_prompt(screen: pygame.Surface, spot: str, ready: bool) -> None:
     by = HEIGHT - bh - 8
     surf = pygame.Surface((bw, bh), pygame.SRCALPHA)
     draw_3d_box(surf, 0, 0, bw, bh)
-    ts = FONT_SMALL.render(label, True, BLACK)
+    ts = _S.FONT_SMALL.render(label, True, BLACK)
     surf.blit(ts, ((bw - ts.get_width()) // 2, (bh - ts.get_height()) // 2))
     screen.blit(surf, (bx, by))
 

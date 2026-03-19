@@ -3,7 +3,8 @@ import sys
 
 import pygame
 
-from engine.settings import WIDTH, HEIGHT, BLACK, FONT_SMALL, SPRITE_WIDTH, SPRITE_HEIGHT
+import engine.settings as _S
+from engine.settings import WIDTH, HEIGHT, BLACK, SPRITE_WIDTH, SPRITE_HEIGHT
 from engine.dialogue import text_box, draw_3d_box
 from data.dialogue import (
     SCENE_5_SAM_SPOT,
@@ -78,9 +79,9 @@ async def _choice_box(screen: pygame.Surface, prompt: str, choices: list) -> int
     box_x   = 50
     box_w   = WIDTH - 100
     inner_w = box_w - 40
-    line_h  = FONT_SMALL.get_linesize()
+    line_h  = _S.FONT_SMALL.get_linesize()
 
-    prompt_lines    = _wrap_text(prompt, FONT_SMALL, inner_w)
+    prompt_lines    = _wrap_text(prompt, _S.FONT_SMALL, inner_w)
     choices_y_start = 16 + len(prompt_lines) * line_h + 8
     box_h  = max(170, choices_y_start + len(choices) * 36 + 20)
     box_y  = HEIGHT - box_h - 10
@@ -93,12 +94,12 @@ async def _choice_box(screen: pygame.Surface, prompt: str, choices: list) -> int
         draw_3d_box(surf, 0, 0, box_w, box_h)
 
         for li, line in enumerate(prompt_lines):
-            prompt_surf = FONT_SMALL.render(line, True, (0, 0, 0))
+            prompt_surf = _S.FONT_SMALL.render(line, True, (0, 0, 0))
             surf.blit(prompt_surf, (20, 16 + li * line_h))
 
         for i, choice in enumerate(choices):
             prefix    = "\u25BA " if i == selected else "  "
-            text_surf = FONT_SMALL.render(prefix + choice, True, (0, 0, 0))
+            text_surf = _S.FONT_SMALL.render(prefix + choice, True, (0, 0, 0))
             surf.blit(text_surf, (20, choices_y_start + i * 36))
 
         screen.blit(surf, (box_x, box_y))

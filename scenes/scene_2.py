@@ -3,8 +3,9 @@ import sys
 
 import pygame
 
+import engine.settings as _S
 from engine.settings import (
-    WIDTH, HEIGHT, WHITE, BLACK, FONT_SMALL,
+    WIDTH, HEIGHT, WHITE, BLACK,
     SPRITE_WIDTH, SPRITE_HEIGHT, MOVEMENT_SPEED,
 )
 
@@ -90,12 +91,12 @@ async def _choice_box(screen: pygame.Surface, prompt: str, choices: list) -> int
         surf = pygame.Surface((box_w, box_h), pygame.SRCALPHA)
         draw_3d_box(surf, 0, 0, box_w, box_h)
 
-        prompt_surf = FONT_SMALL.render(prompt, True, BLACK)
+        prompt_surf = _S.FONT_SMALL.render(prompt, True, BLACK)
         surf.blit(prompt_surf, (20, 16))
 
         for i, choice in enumerate(choices):
             prefix = "\u25BA " if i == selected else "  "
-            text_surf = FONT_SMALL.render(prefix + choice, True, BLACK)
+            text_surf = _S.FONT_SMALL.render(prefix + choice, True, BLACK)
             surf.blit(text_surf, (20, 55 + i * 36))
 
         screen.blit(surf, (box_x, box_y))

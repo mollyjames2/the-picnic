@@ -2,7 +2,8 @@ import asyncio
 import pygame
 import sys
 
-from engine.settings import WIDTH, HEIGHT, WHITE, BLACK, OFF_WHITE, FONT_SMALL
+import engine.settings as _S
+from engine.settings import WIDTH, HEIGHT, WHITE, BLACK, OFF_WHITE
 
 
 def draw_3d_box(surf: pygame.Surface, x: int, y: int, w: int, h: int, depth: int = 3) -> None:
@@ -35,7 +36,9 @@ def _wrap_pixel(text: str, font: pygame.font.Font, max_width: int) -> list:
     return lines
 
 
-async def text_box(screen, *lines, font=FONT_SMALL):
+async def text_box(screen, *lines, font=None):
+    if font is None:
+        font = _S.FONT_SMALL
     line_height = 40
     box_x, box_y = 50, HEIGHT - 150
     box_width, box_height = WIDTH - 100, 100

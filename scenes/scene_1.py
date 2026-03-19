@@ -2,8 +2,9 @@ import math
 
 import pygame
 
+import engine.settings as _S
 from engine.settings import (
-    WIDTH, HEIGHT, WHITE, BLACK, LIGHT_BROWN, FONT_SMALL,
+    WIDTH, HEIGHT, WHITE, BLACK, LIGHT_BROWN,
     SPRITE_WIDTH, SPRITE_HEIGHT, MOVEMENT_SPEED,
 )
 from engine.dialogue import text_box, draw_3d_box
@@ -88,8 +89,8 @@ def _draw_prompt_box(screen: pygame.Surface) -> None:
     by = (HEIGHT - bh) // 2
     surf = pygame.Surface((bw, bh), pygame.SRCALPHA)
     draw_3d_box(surf, 0, 0, bw, bh)
-    title  = FONT_SMALL.render("PACK THE PICNIC BASKET", True, BLACK)
-    prompt = FONT_SMALL.render("press ENTER to start",   True, BLACK)
+    title  = _S.FONT_SMALL.render("PACK THE PICNIC BASKET", True, BLACK)
+    prompt = _S.FONT_SMALL.render("press ENTER to start",   True, BLACK)
     surf.blit(title,  ((bw - title.get_width())  // 2, 18))
     surf.blit(prompt, ((bw - prompt.get_width()) // 2, 64))
     screen.blit(surf, (bx, by))

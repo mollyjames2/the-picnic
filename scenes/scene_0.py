@@ -1,16 +1,17 @@
 import asyncio
 import pygame
 
-from engine.settings import BLACK, WHITE, WIDTH, HEIGHT, FONT_LARGE, FONT_SMALL
+import engine.settings as _S
+from engine.settings import BLACK, WHITE, WIDTH, HEIGHT
 from data.dialogue import INTRO_TITLE, INTRO_SUBTITLE
 
 
 async def run(screen, game_state, keys, event):
     screen.fill(BLACK)
 
-    title_text = FONT_LARGE.render(INTRO_TITLE, True, WHITE)
-    subtitle_text = FONT_SMALL.render(INTRO_SUBTITLE, True, WHITE)
-    prompt_text = FONT_SMALL.render("Press ENTER to start", True, WHITE)
+    title_text = _S.FONT_LARGE.render(INTRO_TITLE, True, WHITE)
+    subtitle_text = _S.FONT_SMALL.render(INTRO_SUBTITLE, True, WHITE)
+    prompt_text = _S.FONT_SMALL.render("Press ENTER to start", True, WHITE)
 
     screen.blit(title_text, (WIDTH // 2 - title_text.get_width() // 2, HEIGHT // 2 - 100))
     screen.blit(subtitle_text, (WIDTH // 2 - subtitle_text.get_width() // 2, HEIGHT // 2 - 50))

@@ -3,7 +3,8 @@ import sys
 
 import pygame
 
-from engine.settings import WIDTH, HEIGHT, BLACK, WHITE, OFF_WHITE, FONT_LARGE, FONT_SMALL
+import engine.settings as _S
+from engine.settings import WIDTH, HEIGHT, BLACK, WHITE, OFF_WHITE
 from engine.dialogue import text_box, draw_3d_box
 from data.dialogue import (
     SCENE_6_SAM_WHAT,
@@ -77,7 +78,7 @@ def _draw_scene_with_ring(screen: pygame.Surface, gs: dict) -> None:
         ph_x = WIDTH  // 2 - ph_w // 2
         ph_y = HEIGHT // 2 - ph_h // 2
         pygame.draw.rect(screen, WHITE, (ph_x, ph_y, ph_w, ph_h), 6)
-        label = FONT_SMALL.render("[ring.png]", True, WHITE)
+        label = _S.FONT_SMALL.render("[ring.png]", True, WHITE)
         screen.blit(label, (ph_x + ph_w // 2 - label.get_width() // 2,
                              ph_y + ph_h // 2 - label.get_height() // 2))
 
@@ -179,7 +180,7 @@ async def run(screen: pygame.Surface, game_state: dict, keys, event) -> None:
     # ── Phase 5: press ENTER prompt ───────────────────────────────────────────
     if not gs.get("s6_continue_done"):
         _draw_scene_with_ring(screen, gs)
-        prompt      = FONT_SMALL.render(SCENE_6_PRESS_ENTER, True, BLACK)
+        prompt      = _S.FONT_SMALL.render(SCENE_6_PRESS_ENTER, True, BLACK)
         box_w       = prompt.get_width() + 48
         box_h       = 46
         box_x       = WIDTH  // 2 - box_w // 2
@@ -202,7 +203,7 @@ async def run(screen: pygame.Surface, game_state: dict, keys, event) -> None:
 
     # ── Ending title card (stays here) ────────────────────────────────────────
     screen.fill(BLACK)
-    line1 = FONT_SMALL.render(SCENE_6_ENDING_LINE,  True, WHITE)
-    title = FONT_LARGE.render(SCENE_6_ENDING_TITLE, True, WHITE)
+    line1 = _S.FONT_SMALL.render(SCENE_6_ENDING_LINE,  True, WHITE)
+    title = _S.FONT_LARGE.render(SCENE_6_ENDING_TITLE, True, WHITE)
     screen.blit(line1, (WIDTH // 2 - line1.get_width() // 2, HEIGHT // 2 - 55))
     screen.blit(title, (WIDTH // 2 - title.get_width() // 2, HEIGHT // 2 + 10))
