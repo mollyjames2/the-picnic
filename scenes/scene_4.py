@@ -41,12 +41,12 @@ from data.dialogue import (
 )
 
 # Hotspot rectangles matching the background layout (priority order: tree first).
-# x-ranges are kept non-overlapping: tree(60-245), sunny(255-410), flowers(420-575), lake(590-775)
+# Non-overlapping: tree(20-350,30-300), sunny(20-550,300-540), flowers(385-800,150-300), lake(550-770,300-510)
 _HOTSPOTS = {
-    "tree":    pygame.Rect(60,  270, 185, 250),
-    "sunny":   pygame.Rect(255, 300, 155, 220),
-    "flowers": pygame.Rect(460, 220, 200, 130),
-    "lake":    pygame.Rect(590, 340, 185, 220),
+    "tree":    pygame.Rect(20,  30,  330, 270),
+    "sunny":   pygame.Rect(20,  300, 530, 240),
+    "flowers": pygame.Rect(385, 150, 415, 150),
+    "lake":    pygame.Rect(550, 300, 220, 210),
 }
 
 _SPOT_LABELS = {

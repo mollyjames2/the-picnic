@@ -2,7 +2,7 @@ import asyncio
 import sys
 import pygame
 
-from engine.settings import WIDTH, HEIGHT, FPS, SPRITE_WIDTH, SPRITE_HEIGHT
+from engine.settings import WIDTH, HEIGHT, FPS, SPRITE_WIDTH, SPRITE_HEIGHT, init_fonts
 from engine.assets import SpriteManager
 from engine.transitions import display_gif
 from data.game_config import WINDOW_CAPTION
@@ -19,6 +19,7 @@ SCENES = {
 }
 
 pygame.init()
+init_fonts()
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption(f"{WINDOW_CAPTION} [TEST]")
