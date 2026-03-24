@@ -343,8 +343,57 @@ config = {
 
     <script src="https://pygame-web.github.io/archives/0.9//browserfs.min.js"></script>
 
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 100%; height: 100%;
+    background: #000;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  /* Scale canvas to fill available space while preserving 1160:600 aspect ratio
+     (800px game + 180px sidebar each side). min() picks the binding dimension. */
+  canvas {
+    display: block;
+    width:  min(100vw, calc(100vh * 1160 / 600)) !important;
+    height: min(100vh, calc(100vw * 600 / 1160)) !important;
+  }
+  /* Portrait overlay — shown when width < height (CSS handles iOS too) */
+  #rotate-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 9999;
+    background: #000;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  #rotate-overlay svg { width: 64px; height: 64px; }
+  /* Canvas is 1160:600 ≈ 1.93:1 — show overlay whenever height > width */
+  @media (orientation: portrait) {
+    #rotate-overlay { display: flex; }
+  }
+</style>
 </head>
 
+
+<div id="rotate-overlay">
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+    <rect x="5" y="2" width="14" height="20" rx="2"/>
+    <path d="M12 18h.01"/>
+    <path d="M3 9l3-3 3 3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6 6v6" stroke-linecap="round"/>
+  </svg>
+  <p>Please rotate your device to landscape</p>
+</div>
 <body>
 
     <div id="transfer" align=center>
